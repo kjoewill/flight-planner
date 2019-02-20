@@ -7,15 +7,21 @@ RSpec.describe Flight, :type => :model do
     origin_airport = Airport.create(:code => 'KFLY', :latitude => 38.945748, :longitude => -104.569893)
     destination_airport = Airport.create(:code => 'KCOS', :latitude => 38.805805, :longitude => -104.700777)
     airplane = Airplane.create(:tail_number => 'N91971', :cruise_speed => 55)
+
+    expect(Flight.count).to eq 0
     flight = Flight.create(:airplane => airplane, :pilot => pilot, :origin_airport => origin_airport, :destination_airport => destination_airport, :date => Date.today)
     expect(flight).to be_valid
+    expect(Flight.count).to eq 1
 
-    flight = Flight.find(1)
+    flight.reload # = Flight.find(1)
     expect(flight.date).to eq(Date.today)
     expect(flight.airplane).to eq(airplane)
     expect(flight.destination_airport).to eq(destination_airport)
     expect(flight.origin_airport.code).to eq("KFLY")
     expect(flight.destination_airport.code).to eq("KCOS")
+
+    expect(flight.pilot.flights).to include(flight)
+    expect(flight.airplane.pilots).to include(flight.pilot)
 
   end
 
