@@ -5,9 +5,12 @@ class SessionsController < ApplicationController
 
   def create
     @pilot = Pilot.find_by(:username => params[:username])
-    session[:user_id] = @pilot.id
-
-    redirect_to root_path
+    if @pilot && @pilot.authenticate(params[:password])
+      session[:user_id] = @pilot.id
+      redirect_to root_path
+    else
+      render 'sessions/new'
+    end
   end
 
   def destroy
