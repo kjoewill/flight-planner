@@ -2,9 +2,10 @@
 
 <%= form_tag(sessions_path) do %>
   <%= text_field_tag :username, '', :placeholder => "username here" %>
-  <%= text_field_tag :password, '', :placeholder => "password here" %>
-  <%= submit_tag %>
+  <%= text_field_tag :password, '', :placeholder => "password here" %></br>
+  <%= submit_tag "Login"%>
 <% end %>
 
-<%= link_to 'Login via Facebook here', '/auth/facebook'  %>
+</br></br>
+<%= link_to 'Login via Facebook here', '/auth/facebook' %></br>
 <%= link_to 'New users register here', new_pilot_path  %>
