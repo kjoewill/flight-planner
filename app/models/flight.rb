@@ -15,6 +15,11 @@ class Flight < ActiveRecord::Base
     haversine_distance(o_pos, d_pos)
   end
 
+  def name
+    "#{origin_airport.code} to #{origin_airport.code} on #{date}"
+  end
+
+
 private
 
   #Employ the haversine formula to calulate the distance
