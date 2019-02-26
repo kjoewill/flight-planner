@@ -1,8 +1,8 @@
 <h1>Plan a new flight</h1>
 
-Flight Date: <input type="date" name="date" value = <%= Date.today.to_s %> min = <%= Date.today.to_s %> >
-
 <%= form_for(@flight) do |f| %>
+
+  Flight Date: <input type="date" name="[flight][date]" value = <%= Date.today.to_s %> min = <%= Date.today.to_s %> ><br>
 
   Aircraft: <%= f.collection_select :airplane_id, Airplane.all, :id, :tail_number %><br>
   Origin: <%= f.collection_select :origin_airport_id, Airport.all, :id, :code %><br>
