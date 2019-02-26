@@ -1,1 +1,8 @@
 <h1>Plan a new flight</h1>
+
+<%= form_for(@flight) do |f| %>
+  Flight Date: <input type="date" name="date" value = <%= Date.today.to_s %> min = <%= Date.today.to_s %> >
+
+  <br><br>
+  <%= f.submit %>
+<%  end %>
