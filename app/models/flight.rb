@@ -16,9 +16,12 @@ class Flight < ActiveRecord::Base
   end
 
   def name
-    "#{origin_airport.code} to #{origin_airport.code} on #{date}"
+    "#{origin_airport.code} to #{destination_airport.code} on #{date}"
   end
 
+  def estimated_duration
+    distance / airplane.cruise_speed
+  end
 
 private
 

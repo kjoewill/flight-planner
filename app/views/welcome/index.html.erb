@@ -1,5 +1,12 @@
-<h1>Flight Planner Home page for: <%= current_user.username %> </h1>
-
+<h1>Flight Planner for: <%= current_user.username %> </h1>
 
 <%= link_to 'Plan a flight!', new_flight_path %></br></br>
+
+<h3>Planned flights</h3
+<ul>
+  <%= render current_user.flights %>
+</ul>
+
+
+<br>
 <%= link_to 'Logout', logout_path %>
