@@ -23,6 +23,15 @@ class Flight < ActiveRecord::Base
     distance / airplane.cruise_speed
   end
 
+  def origin
+    {lat: origin_airport.latitude, long: origin_airport.longitude}
+  end
+
+  def destination
+    {lat: destination_airport.latitude, long: destination_airport.longitude}
+  end
+
+
 private
 
   #Employ the haversine formula to calulate the distance
