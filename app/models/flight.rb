@@ -8,6 +8,9 @@ class Flight < ActiveRecord::Base
 
   validates :date, presence: true
 
+  scope :completed, -> {where(flown: true)}
+  scope :planned, -> {where(flown: false)}
+
   #Provide the distance (in nm) between the origin and desination airports
   def distance
     o_pos = {:latitude => origin_airport.latitude, :longitude => origin_airport.longitude}

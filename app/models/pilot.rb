@@ -17,4 +17,12 @@ class Pilot < ActiveRecord::Base
     flights.select {|f| f.flown?}.sum(&:distance)
   end
 
+  def completed_flights
+    flights.completed
+  end
+
+  def planned_flights
+    flights.planned
+  end
+
 end
