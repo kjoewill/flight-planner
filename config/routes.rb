@@ -10,6 +10,6 @@ Rails.application.routes.draw do
   get '/auth/facebook/callback' => 'sessions#create'
 
   resources :pilots , only: [:new, :create]
-  resources :flights, only: [:new, :create, :show]
+  resources :flights, only: [:new, :create, :show, :edit, :update]
 
 end

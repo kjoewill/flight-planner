@@ -21,6 +21,16 @@ class FlightsController < ApplicationController
     end
   end
 
+  def edit
+    @flight = Flight.find(params[:id])
+  end
+
+  def update
+    flight = Flight.find(params[:id])
+    flight.update(flight_params)
+    redirect_to flight
+  end
+
   private
 
     def flight_params
