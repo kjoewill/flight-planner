@@ -1,7 +1,5 @@
 <h1>Flight Planner for: <%= current_user.username %> </h1>
 
-
-
 <%= link_to 'Plan a flight!', new_flight_path %></br></br>
 
 <h3>Completed flights</h3>
@@ -9,7 +7,6 @@
   <%= render current_user.completed_flights %>
 </ul>
 <h4>Total miles flown: <%= number_with_precision(current_user.miles_flown, precision: 1) %></h4>
-
 
 <h3>Planned flights</h3>
 <ul>
