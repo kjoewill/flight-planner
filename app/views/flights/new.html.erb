@@ -7,6 +7,7 @@
   Aircraft: <%= f.collection_select :airplane_id, Airplane.all, :id, :tail_number %><br>
   Origin: <%= f.collection_select :origin_airport_id, Airport.all, :id, :code %><br>
   Destination: <%= f.collection_select :destination_airport_id, Airport.all, :id, :code %><br>
+  Flown: <%= f.check_box :flown %>
 
   <br><br>
   <%= f.submit %>

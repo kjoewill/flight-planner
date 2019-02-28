@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_19_153348) do
+ActiveRecord::Schema.define(version: 2019_02_28_191900) do
 
   create_table "airplanes", force: :cascade do |t|
     t.string "tail_number"
@@ -29,6 +29,7 @@ ActiveRecord::Schema.define(version: 2019_02_19_153348) do
     t.integer "origin_airport_id"
     t.integer "destination_airport_id"
     t.date "date"
+    t.boolean "flown", default: false
   end
 
   create_table "pilots", force: :cascade do |t|
