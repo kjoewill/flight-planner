@@ -16,7 +16,7 @@ class Flight < ActiveRecord::Base
   end
 
   def name
-    "#{origin_airport.code} to #{destination_airport.code} on #{date}"
+    "#{origin_airport.code} to #{destination_airport.code} on #{date.strftime("%m/%d/%Y")}"
   end
 
   def estimated_duration
