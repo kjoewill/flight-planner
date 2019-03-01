@@ -12,7 +12,6 @@ class PilotsController < ApplicationController
       session[:user_id] = @pilot.id
       redirect_to root_path
     else
-      binding.pry
       render 'pilots/new' #Show the form
     end
   end

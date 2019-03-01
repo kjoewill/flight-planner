@@ -1,5 +1,14 @@
 <h1>Sign up!</h1>
 
+<% if @pilot.errors.any? %>
+  <h2><%= pluralize(@pilot.errors.count, "error") %> prohibited this article from being saved:</h2>
+  <ul>
+  <% @pilot.errors.full_messages.each do |msg| %>
+    <li><%= msg %></li>
+  <% end %>
+  </ul>
+<% end %>
+
 <%= form_for(@pilot) do |f| %>
   <%= f.text_field :username, placeholder: "Register with a username!" %>
   <%= f.text_field :password, placeholder: "Choose a password!" %>
