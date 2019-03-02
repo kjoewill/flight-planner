@@ -34,6 +34,9 @@ class Flight < ActiveRecord::Base
     {lat: destination_airport.latitude, long: destination_airport.longitude}
   end
 
+  def airplane_tail_number
+    airplane.tail_number
+  end
 
 private
 
