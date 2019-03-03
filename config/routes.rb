@@ -11,6 +11,9 @@ Rails.application.routes.draw do
 
   resources :pilots , only: [:new, :create]
   resources :flights, only: [:new, :create, :show, :edit, :update]
-  resources :airplanes, only: [:index, :show]
+
+  resources :airplanes, only: [:index, :show] do
+    resources :squawks, only: [:new, :create]
+  end
 
 end
