@@ -9,9 +9,13 @@ class SquawksController < ApplicationController
     @squawk = Squawk.new(squawk_params)
     @squawk.airplane_id = params[:airplane_id]
     @squawk.save
-    redirect_to airplanes_path
+    redirect_to airplane_squawks_path(@squawk.airplane)
   end
 
+  def index
+    @airplane = Airplane.find(params[:airplane_id])
+    @squawks = @airplane.squawks
+  end
 
   private
 

@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   resources :flights, only: [:new, :create, :show, :edit, :update]
 
   resources :airplanes, only: [:index, :show] do
-    resources :squawks, only: [:new, :create]
+    resources :squawks, only: [:new, :create, :index]
   end
 
 end
