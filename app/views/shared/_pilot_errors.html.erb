@@ -1,8 +1,0 @@
-<% if !pilot.nil? && pilot.errors.any? %>
-  <h2><%= pluralize(pilot.errors.count, "error") %> prohibited this article from being saved:</h2>
-  <ul>
-  <% pilot.errors.full_messages.each do |msg| %>
-    <li><%= msg %></li>
-  <% end %>
-  </ul>
-<% end %>

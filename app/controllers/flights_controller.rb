@@ -9,15 +9,13 @@ class FlightsController < ApplicationController
   end
 
   def create
-    flight = Flight.new(flight_params)
-    flight.pilot_id = current_user.id
-    if !flight.valid?
-      flash[:error] = "The Flight would not pass validations"
-      redirect_to root_path
+    @flight = Flight.new(flight_params)
+    @flight.pilot_id = current_user.id
+    if !@flight.valid?
+      render :new
     else
-      flight.save
-      flash[:success] = "Flight was created!"
-      redirect_to flight
+      @flight.save
+      redirect_to @flight
     end
   end
 

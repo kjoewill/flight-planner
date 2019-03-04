@@ -1,3 +1,4 @@
 <h1>Plan a new flight</h1>
 
+<%= render partial: "shared/errors", locals: {model: @flight}%>
 <%= render partial: "form", locals: {flight: @flight}%>
