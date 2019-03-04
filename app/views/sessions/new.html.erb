@@ -4,7 +4,7 @@
 
 <%= form_tag(sessions_path) do %>
   <%= text_field_tag :username, '', :placeholder => "username here" %>
-  <%= text_field_tag :password, '', :placeholder => "password here" %></br>
+  <%= password_field_tag :password, '', :placeholder => "password here" %></br>
   <%= submit_tag "Login"%>
 <% end %>
 
