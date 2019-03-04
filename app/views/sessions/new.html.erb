@@ -1,5 +1,7 @@
 <h1>Login!</h1>
 
+<%= render partial: "shared/pilot_errors", locals: {pilot: @pilot}%>
+
 <%= form_tag(sessions_path) do %>
   <%= text_field_tag :username, '', :placeholder => "username here" %>
   <%= text_field_tag :password, '', :placeholder => "password here" %></br>

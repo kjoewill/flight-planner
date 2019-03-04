@@ -5,15 +5,17 @@ class SessionsController < ApplicationController
 
   def create
     if auth_hash = request.env["omniauth.auth"]
-      pilot = Pilot.find_or_create_by_omniauth(auth_hash)
-      session[:user_id] = pilot.id
+      @pilot = Pilot.find_or_create_by_omniauth(auth_hash)
+      session[:user_id] = @pilot.id
       redirect_to root_path
     else
-      pilot = Pilot.find_by(:username => params[:username])
-      if pilot && pilot.authenticate(params[:password])
-        session[:user_id] = pilot.id
+      @pilot = Pilot.find_by(:username => params[:username])
+      if @pilot && @pilot.authenticate(params[:password])
+        session[:user_id] = @pilot.id
         redirect_to root_path
       else
+        @pilot = Pilot.new #Only for passing error messages
+        @pilot.errors[:base] << "Username and/or password is invalid"
         render 'sessions/new'
       end
     end
