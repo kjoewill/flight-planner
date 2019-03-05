@@ -3,13 +3,13 @@
 <%= link_to 'Plan a flight!', new_flight_path %>
 <%= link_to 'View Fleet', airplanes_path %></br></br>
 
-<h3>Completed flights</h3>
+<h3>Completed flights (<%= current_user.completed_flights.count%>)</h3>
 <ul>
   <%= render current_user.completed_flights %>
 </ul>
 <h4>Total miles flown: <%= number_with_precision(current_user.miles_flown, precision: 1) %></h4>
 
-<h3>Planned flights</h3>
+<h3>Planned flights (<%= current_user.planned_flights.count%>)</h3>
 <ul>
   <%= render current_user.planned_flights %>
 </ul>
