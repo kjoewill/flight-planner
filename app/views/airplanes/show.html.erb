@@ -2,6 +2,8 @@
 
 <h4>Cruise Speed: <%= @airplane.cruise_speed %> nm/hr</h4>
 
+<%= image_tag("#{@airplane.tail_number}.jpg", width: '600px') %><br>
+
 <%= link_to 'Create new squawk', new_airplane_squawk_path(@airplane) %> <br>
 
 <%= link_to 'Home', root_path %>
