@@ -1,12 +1,12 @@
 <h1>Flight Detail</h1>
 <h4><%= @flight.name %></h4>
 <h4>Distance: <%= number_with_precision(@flight.distance, precision: 1) %> Nautical miles</h4>
-<h4>Estimated flight time: <%= number_with_precision(@flight.estimated_duration, precision: 1) %> hours</h4>
-<h4>Flight Aircraft: <%= @flight.airplane_tail_number %> </h4>
+<h4>Estimated duration: <%= number_with_precision(@flight.estimated_duration, precision: 1) %> hours</h4>
+<h4>Aircraft: <%= @flight.airplane_tail_number %> </h4>
+<h4>Status: <%= @flight.status %></h4>
 
 <p>
 <%= image_tag google_maps_url(@flight.origin, @flight.destination), alt: "Map" %>
 </p>
 
-<%= link_to 'Home', root_path %>
 <%= link_to 'Edit', edit_flight_path %>

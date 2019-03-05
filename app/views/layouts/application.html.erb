@@ -10,6 +10,8 @@
   </head>
 
   <body>
+    <%= link_to 'Home', root_path if logged_in?%>
+    <%= link_to 'Logout', logout_path if logged_in? %>
     <%= yield %>
   </body>
 </html>

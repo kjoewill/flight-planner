@@ -38,6 +38,10 @@ class Flight < ActiveRecord::Base
     airplane.tail_number
   end
 
+  def status
+    flown ? "completed" : "planned"
+  end
+
 private
 
   #Employ the haversine formula to calulate the distance
