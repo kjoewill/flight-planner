@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   post '/sessions' => 'sessions#create'
   get '/logout' => 'sessions#destroy'
 
+  get '/most-recent-flight' => 'flights#most_recent'
+
   get '/auth/facebook/callback' => 'sessions#create'
 
   resources :pilots , only: [:new, :create]

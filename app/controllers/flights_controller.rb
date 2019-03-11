@@ -29,6 +29,11 @@ class FlightsController < ApplicationController
     redirect_to flight
   end
 
+  def most_recent
+    @flight = Flight.completed.last
+    render :show
+  end
+
   private
 
     def flight_params

@@ -9,4 +9,4 @@
 <%= image_tag google_maps_url(@flight.origin, @flight.destination), alt: "Map" %>
 </p>
 
-<%= link_to 'Edit', edit_flight_path %>
+<%= link_to 'Edit', edit_flight_path(@flight) %>
